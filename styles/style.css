@@ -3,3 +3,35 @@
 @import url(./a11y.css);
 @import url(./theme.css);
 @import url(./base.css);
+
+/* 공통스타일 */
+
+body {
+  background-color: var(--yellow);
+}
+
+/* 모바일에서만 주고 싶으면 최소랑 최대크기를 지정해야한다 */
+@media (min-width: 320px) and (max-width: 768px) {
+  body {
+    background-color: var(--green);
+  }
+}
+
+/* 중단점 - 600이상 */
+/* 768이 모바일환경까지 보는 수치라서 769로 계산함 */
+@media (min-width: 769px) {
+  body {
+    background-color: var(--blue);
+  }
+}
+
+.news__videoContainer {
+  width: 50%;
+}
+
+.book__cover {
+  width: 30%;
+  background-color: pink;
+  /* 원본크기가 350이 되지 않아서 350으로 늘어나지 않는다 */
+  /*  */
+}
