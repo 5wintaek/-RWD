@@ -1,0 +1,12 @@
+.container {
+  border: 5px solid black;
+}
+
+.box {
+  box-sizing: border-box;
+  background-color: #91ff00;
+  border: 5px solid blue;
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+}
