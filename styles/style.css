@@ -23,11 +23,64 @@
 .logo__link {
   display: block;
   /* 블럭이여야만 가로세로 크기 지정 가능 */
-  width: 100%;
+  width: auto;
   height: 100%;
   background: url(./../images/webcafe-logo.png) no-repeat 0 0/100%;
   /* background-size: 100% 100%; 가로 세로   */
   /* no-repeat 0 0/100%; -> 100% 하나썻는데 가로 세로 크기가 100% 라는뜻 */
+}
+
+/* 공통 검색 폼 */
+input[type="search"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.searchForm__group {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.searchForm__group .formInput {
+  margin-right: var(--spacing-xs);
+}
+
+.searchForm__group .formInput__input {
+  width: 100%;
+  height: 2rem;
+  border: 1px solid var(--silver);
+  background: var(--white);
+  border-radius: 0.25rem;
+  padding: var(--spacing-sxxs) var(--spacing-sm);
+}
+
+.button {
+  cursor: pointer;
+  height: 2rem;
+  border-radius: 0.25rem;
+  padding: var(--spacing-sxxs) var(--spacing-sm);
+  /* flex-shrink 로 대체 가능 */
+  flex: 0 0 auto;
+  /* white-space: nowrap; */
+  font-size: var(--text-sm);
+}
+
+.button--none {
+  border: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.button--fill {
+  background: var(--secondary-color);
+  color: var(--white);
+  border: 0;
+}
+
+.button--outline {
+  background: transparent;
+  color: var(--secondary-color);
+  border: 1px solid currentColor;
 }
 
 /* 공통 멤버서비스 */
@@ -38,7 +91,7 @@
 }
 
 /* 모바일 디바이스 (Mobile Device) */
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 320px) and (max-width: 768px) {
   /* 모바일 헤더 */
   .appHeader {
     background: var(--primary-color);
@@ -49,6 +102,129 @@
   .memberOnly {
     order: -1;
     font-size: var(--text-sm);
+  }
+
+  /* 모바일 검색 폼 */
+  .searchForm__group .formInput {
+    flex-grow: 1;
+  }
+
+  /* 모바일 메인메뉴 제어버튼 */
+  .buttonWrapper {
+    padding: var(--spacing-xs);
+    /* hidden 으로 인해 짤린걸 padding으로 커버 */
+    overflow: hidden;
+    position: absolute;
+    top: 3.75rem;
+    /* right 준 이유는  */
+    right: var(--spacing-lg);
+    /* 상자가 내려가기 떄문에 다시 translate 이용해서 올림 */
+    transform: translate(0.25rem, -0.25rem);
+  }
+
+  .button--burger {
+    /* 엡해더에도 relative 있음 */
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .button--burger:focus {
+    /* 키보드로 접근할때 식별하기 편하기 위함*/
+    outline-offset: 2px;
+  }
+
+  .button--burgerBarTop,
+  .button--burgerBarMiddle,
+  .button--burgerBarBottom {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    background: var(--white);
+    border-radius: 0.25rem;
+    left: 0;
+    transition: all 200ms;
+  }
+
+  .button--burgerBarTop {
+    top: 0;
+  }
+
+  .button--burgerBarMiddle {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .button--burgerBarBottom {
+    top: 100%;
+    transform: translateY(-100%);
+  }
+
+  .button--burger.is--active .button--burgerBarMiddle {
+    transform: translate(-150%, -50%);
+  }
+
+  .button--burger.is--active .button--burgerBarTop {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .button--burger.is--active .button--burgerBarBottom {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+/* 데스크탑 디바이스 (Desktop Device) */
+@media (min-width: 769px) {
+  /* 데스크탑 헤더 */
+  .appHeader {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    background-color: pink;
+  }
+
+  /* 데스크탑 로고 */
+  .logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  /* 데스크탑 검색 폼 */
+  .searchForm__group {
+    justify-content: flex-end;
+  }
+
+  .searchForm__group .formInput {
+    width: 25rem;
+  }
+  /* 데스크탑 메인메뉴 제어버튼 */
+  .button--burger {
+    display: none;
+  }
+
+  /* 데스크탑 메인 메뉴 */
+  .menu {
+    background-color: var(--secondary-color);
+  }
+  .menu__list {
+    width: var(--container-width);
+    margin-right: auto;
+    margin-left: auto;
+    background-color: aqua;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  .menu__item {
+    padding: var(--spacing-sm);
+  }
+  .menu__link {
+    background-color: bisque;
+    display: block;
+    padding: var(--spacing-base) var(--spacing-lg);
+    /* 양옆에 페딩 준 이유는  */
   }
 }
 
