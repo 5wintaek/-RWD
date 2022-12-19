@@ -118,7 +118,7 @@
 }
 
 .sprite {
-  color: white;
+  /* color: white; */
   height: 3.75rem;
   background: blue url(/images/sprite_main.png) no-repeat 0 0;
   padding-left: 4rem;
@@ -141,29 +141,45 @@
   background: url(/images/sprite_main.png) no-repeat 0 -460px;
 }
 
+.accentBook {
+  color: var(--accent-book);
+}
+.accentNews {
+  color: var(--accent-news);
+}
+.accentBoard {
+  color: var(--accent-board);
+}
+.accentFavorite {
+  color: var(--accent-favorite);
+}
+.accentTwitter {
+  color: var(--accent-twitter);
+}
+
 /* 공동 추천 서적 */
 .book {
-  background: lightblue;
+  /* background: lightblue; */
   grid-area: book;
 }
 /* 공동 새소식 */
 .news {
-  background: yellow;
+  /* background: yellow; */
   grid-area: news;
 }
 /* 공동 게시판 */
 .board {
-  background: lightsalmon;
+  /* background: lightsalmon; */
   grid-area: board;
 }
 /* 공동 인기 사이트 */
 .favorite {
-  background: skyblue;
+  /* background: skyblue; */
   grid-area: favorite;
 }
 /* 공동 트위터 */
 .twitter {
-  background: burlywood;
+  /* background: burlywood; */
   grid-area: twitter;
 }
 
