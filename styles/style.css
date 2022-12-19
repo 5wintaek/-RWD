@@ -13,29 +13,28 @@
   padding: var(--spacing-base) var(--spacing-lg);
   gap: var(--spacing-base);
 }
-
 /* 공통 로고*/
 .logo {
-  width: 12.75rem; /* 204px */
+  width: 12.24rem; /* 204px */
   height: 3.687rem; /* 59px */
 }
 
 .logo__link {
   display: block;
-  /* 블럭이여야만 가로세로 크기 지정 가능 */
-  width: auto;
+  width: 100%;
   height: 100%;
-  background: url(./../images/webcafe-logo.png) no-repeat 0 0/100%;
-  /* background-size: 100% 100%; 가로 세로   */
-  /* no-repeat 0 0/100%; -> 100% 하나썻는데 가로 세로 크기가 100% 라는뜻 */
+  background: url(./../images/webcafe-logo.png) no-repeat 0 0/ 100%;
+}
+
+/* 공통 멤버서비스 로그인/회원가입/커뮤니티*/
+.memberOnly {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  /* flex-end 를 사용하여 오른쪽 끝으로 보냄 */
 }
 
 /* 공통 검색 폼 */
-/* input[type="search"] {
-  -webkit-appearance: none;
-  appearance: none;
-} */
-
 .searchForm__group {
   display: flex;
   flex-flow: row nowrap;
@@ -43,6 +42,10 @@
 
 .searchForm__group .formInput {
   margin-right: var(--spacing-xs);
+}
+
+.formInput {
+  background-color: aqua;
 }
 
 .searchForm__group .formInput__input {
@@ -59,9 +62,7 @@
   height: 2rem;
   border-radius: 0.25rem;
   padding: var(--spacing-sxxs) var(--spacing-sm);
-  /* flex-shrink 로 대체 가능 */
   flex: 0 0 auto;
-  /* white-space: nowrap; */
   font-size: var(--text-sm);
 }
 
@@ -83,13 +84,6 @@
   border: 1px solid currentColor;
 }
 
-/* 공통 멤버서비스 */
-.memberOnly {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-}
-
 /* 모바일 디바이스 (Mobile Device) */
 @media (min-width: 320px) and (max-width: 768px) {
   /* 모바일 헤더 */
@@ -103,104 +97,44 @@
     order: -1;
     font-size: var(--text-sm);
   }
-
   /* 모바일 검색 폼 */
   .searchForm__group .formInput {
     flex-grow: 1;
   }
-
-  /* 모바일 메인메뉴 제어버튼 */
-  .buttonWrapper {
-    padding: var(--spacing-xs);
-    /* hidden 으로 인해 짤린걸 padding으로 커버 */
-    overflow: hidden;
-    position: absolute;
-    top: 3.75rem;
-    /* right 준 이유는  */
-    right: var(--spacing-lg);
-    /* 상자가 내려가기 떄문에 다시 translate 이용해서 올림 */
-    transform: translate(0.25rem, -0.25rem);
-  }
-
-  .button--burger {
-    /* 엡해더에도 relative 있음 */
-    position: relative;
-    width: 2rem;
-    height: 2rem;
-  }
-
-  .button--burger:focus {
-    /* 키보드로 접근할때 식별하기 편하기 위함*/
-    outline-offset: 2px;
-  }
-
-  .button--burgerBarTop,
-  .button--burgerBarMiddle,
-  .button--burgerBarBottom {
-    pointer-events: none;
-    /* 클릭해도 버튼을 누른것처럼 하기 위해 */
-    position: absolute;
-    width: 100%;
-    height: 20%;
-    background: var(--white);
-    border-radius: 0.25rem;
-    left: 0;
-    transition: all 200ms;
-  }
-
-  .button--burgerBarTop {
-    top: 0;
-  }
-
-  .button--burgerBarMiddle {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .button--burgerBarBottom {
-    top: 100%;
-    transform: translateY(-100%);
-  }
-
-  .button--burger.is--active .button--burgerBarMiddle {
-    transform: translate(-150%, -50%);
-  }
-
-  .button--burger.is--active .button--burgerBarTop {
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-  }
-
-  .button--burger.is--active .button--burgerBarBottom {
-    top: 50%;
-    transform: translateY(-50%) rotate(-45deg);
-  }
-  /* 모바일 메인 메뉴 */
-  .menu__list {
-    background: var(--accent-opacity-color);
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    left: 0;
-    width: 70%;
-    height: 100vh;
-    backdrop-filter: blur(4px);
-    padding: var(--spacing-lg);
-    transform: translateX(-150%);
-  }
-
-  .menu__item {
-    border-bottom: 1px solid var(--silver);
-  }
-
-  .menu__link {
-    padding: var(--spacing-xs);
-  }
-
-  .menu.is--active .menu__list {
-    transform: none;
-  }
 }
+
+/* 모바엘 메뉴 제어 버튼 시작 */
+.buttonWrapper {
+  background: gold;
+}
+
+.button--burger {
+  width: 30px;
+  height: 30px;
+  background: blue;
+  position: relative;
+}
+
+[class*=".button--burgerBar"] {
+  background: var(--white);
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  border-radius: 10px;
+  left: 0;
+  transition: all 200ms;
+}
+
+.button--burgerBarTop {
+  top: 0;
+}
+.button--burgerBarMiddle {
+  top: 50%;
+}
+.button--burgerBarBottom {
+}
+
+/* 모바엘 메뉴 제어 버튼 종료 */
 
 /* 데스크탑 디바이스 (Desktop Device) */
 @media (min-width: 769px) {
@@ -209,7 +143,7 @@
     max-width: var(--container-width);
     margin-left: auto;
     margin-right: auto;
-    /* background-color: pink; */
+    background-color: gold;
   }
 
   /* 데스크탑 로고 */
@@ -218,6 +152,7 @@
     top: 50%;
     transform: translateY(-50%);
   }
+
   /* 데스크탑 검색 폼 */
   .searchForm__group {
     justify-content: flex-end;
@@ -226,40 +161,16 @@
   .searchForm__group .formInput {
     width: 25rem;
   }
-  /* 데스크탑 메인메뉴 제어버튼 */
-  .button--burger {
-    display: none;
-  }
+}
 
-  /* 데스크탑 메인 메뉴 */
-  .menu {
-    background: var(--secondary-color);
-    padding: var(--spacing-base) var(--spacing-lg);
-  }
-
-  .menu__list {
-    max-width: var(--container-width);
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    /* 높이를 주고 어라인 아이템 주고 center 처리하면 글자가 중간으로 옴 */
-  }
-
-  .menu__link {
-    display: block;
-    padding: var(--spacing-md) var(--spacing-lg);
-    color: var(--white);
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 0 var(--black), -1px -1px 0 var(--black);
-  }
+/* 데스크탑 메인메뉴 제어버튼 */
+.button--burger {
+  display: none;
 }
 
 /* 고해상도 배경이미지 미디어쿼리 */
 @media (-webkit-min-device-pixel-ratio: 2),
-  /* 최소 2배율 이상일때 디바이스에 최적화된 이미지를 출력하라고 명령*/ (min--moz-device-pixel-ratio: 2),
+  (min--moz-device-pixel-ratio: 2),
   (-o-min-device-pixel-ratio: 2/1),
   (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
@@ -267,20 +178,4 @@
   .logo__link {
     background-image: url(./../images/webcafe-logo@2x.png);
   }
-}
-
-.box {
-  background-color: aqua;
-}
-
-.box {
-  background-color: aqua;
-}
-
-.box {
-  background-color: aqua;
-}
-
-.box {
-  background-color: aqua;
 }

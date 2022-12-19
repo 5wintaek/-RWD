@@ -40,7 +40,7 @@ body {
   background: Olive;
 }
 .group12 .box {
-  background: SandyBrown;
+  background: blue;
 }
 
 /* 모든 디바이스 */
@@ -55,6 +55,8 @@ body {
 div[class*="group"] {
   width: 100%;
   margin: 0;
+  margin: 12px 0;
+  padding: 0 12px;
 }
 
 .box {
