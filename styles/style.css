@@ -225,6 +225,37 @@
 .board {
   /* background: lightsalmon; */
   grid-area: board;
+  position: relative;
+}
+
+.baord__title {
+  background-color: aqua;
+}
+
+.board__list {
+  /* background-color: aqua; */
+  line-height: 1.6;
+}
+
+.board__item {
+  /* background-color: blue; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.board__link {
+  /* background-color: green; */
+}
+
+.board__date {
+  /* background-color: indianred; */
+}
+
+.board__more {
+  /* background-color: red; */
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 /* 공통 인기 사이트 */
 .favorite {
