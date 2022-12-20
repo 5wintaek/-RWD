@@ -5,6 +5,11 @@
 @import url(./base.css);
 
 /* 모든 디바이스 (All Device) */
+/* 공통 아이콘 (Font Awesome) */
+.far,
+.fas {
+  margin-right: var(--spacing-xs);
+}
 /* 공통 헤더 */
 .appHeader {
   position: relative;
@@ -115,30 +120,31 @@
 [class*="__koTitle"] {
   font-size: var(--text-md);
   font-weight: 700;
+  /* color: aqua; */
 }
 
 .sprite {
+  background: url(../images/sprite_main.png) no-repeat;
   /* color: white; */
   height: 3.75rem;
-  background: blue url(/images/sprite_main.png) no-repeat 0 0;
-  padding-left: 4rem;
+  /* color: aqua; */
+  padding-left: 3.75rem;
 }
 
 .spriteBook {
-  /* background-position: 0 -230px; */
-  background: url(/images/sprite_main.png) no-repeat 0 -230px;
+  background-position: 0 0;
 }
 .spriteBoard {
-  background: url(/images/sprite_main.png) no-repeat 0 -115px;
+  background-position: 0 -115px;
 }
 .spriteNews {
-  background: url(/images/sprite_main.png) no-repeat 0 0;
+  background-position: 0 -230px;
 }
 .spriteFavorite {
-  background: url(/images/sprite_main.png) no-repeat 0 -345px;
+  background-position: 0 -345px;
 }
 .spriteTwitter {
-  background: url(/images/sprite_main.png) no-repeat 0 -460px;
+  background-position: 0 -460px;
 }
 
 .accentBook {
@@ -157,27 +163,75 @@
   color: var(--accent-twitter);
 }
 
-/* 공동 추천 서적 */
+/* 공통 메인 콘텐츠 섹션 본문 */
+.appMain [class*="__summary"] {
+  line-height: 1.6;
+  margin-top: var(--spacing-base);
+}
+
+/* 공통 추천 서적 */
 .book {
   /* background: lightblue; */
   grid-area: book;
 }
-/* 공동 새소식 */
+
+.book__cover {
+  /* figure 가 줄어든것, 이미지가 줄어든게 아니다 */
+  width: 80%;
+  /* width가 부모보다 작아야, 즉 width가 남아야 auto 마진으로 가운데 정렬 가능하다. */
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: yellow; */
+  text-align: center;
+}
+
+.book__coverCaption {
+  margin-top: var(--spacing-sm);
+  line-height: 1.6;
+}
+
+.book__info {
+  /* background-color: beige; */
+  text-align: center;
+  margin-top: var(--spacing-base);
+}
+
+/* book__info 인것들 전부 다 포함 */
+.book__info * {
+  display: inline;
+  /* background-color: antiquewhite; */
+}
+
+.ratingStar {
+  display: block;
+  font-size: var(--text-xl);
+  /* background-color: aquamarine; */
+}
+
+/* 공통 새소식 */
 .news {
   /* background: yellow; */
   grid-area: news;
 }
-/* 공동 게시판 */
+
+.news__date {
+  /* background-color: lime; */
+  display: block;
+  margin-top: var(--spacing-base);
+  text-align: right;
+}
+
+/* 공통 게시판 */
 .board {
   /* background: lightsalmon; */
   grid-area: board;
 }
-/* 공동 인기 사이트 */
+/* 공통 인기 사이트 */
 .favorite {
   /* background: skyblue; */
   grid-area: favorite;
 }
-/* 공동 트위터 */
+/* 공통 트위터 */
 .twitter {
   /* background: burlywood; */
   grid-area: twitter;
