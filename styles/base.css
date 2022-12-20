@@ -39,8 +39,12 @@ video {
 /* 반응형 Iframe */
 .iframeWrapper {
   background-color: blueviolet;
+  aspect-ratio: 16/9;
   position: relative;
-  padding-bottom: 56.25%;
+  /* width: 100%; */
+  /* height: 0; */
+  /* position: relative; */
+  /* padding-bottom: 56.25%; */
 }
 
 .iframeWrapper iframe {
@@ -50,3 +54,18 @@ video {
   width: 100%;
   height: 100%;
 }
+
+/* .iframeRatio-16-9 {
+  padding-top: 56.25%;
+}
+
+.iframeRatio-21-9 {
+  padding-top: 42.8571%;
+}
+
+.iframeRatio-4-3 {
+  padding-top: 75%;
+}
+.iframeRatio-1-1 {
+  padding-top: 100%;
+} */
