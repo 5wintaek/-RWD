@@ -5,6 +5,11 @@
 @import url(./base.css);
 
 /* 모든 디바이스 (All Device) */
+/* 공통 아이콘 (Font Awesome) */
+.far,
+.fas {
+  margin-right: var(--spacing-xs);
+}
 /* 공통 헤더 */
 .appHeader {
   position: relative;
@@ -13,28 +18,29 @@
   padding: var(--spacing-base) var(--spacing-lg);
   gap: var(--spacing-base);
 }
+
 /* 공통 로고*/
 .logo {
-  width: 12.24rem; /* 204px */
+  width: 12.75rem; /* 204px */
   height: 3.687rem; /* 59px */
 }
 
 .logo__link {
   display: block;
-  width: 100%;
+  /* 블럭이여야만 가로세로 크기 지정 가능 */
+  width: auto;
   height: 100%;
-  background: url(./../images/webcafe-logo.png) no-repeat 0 0/ 100%;
-}
-
-/* 공통 멤버서비스 로그인/회원가입/커뮤니티*/
-.memberOnly {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-end;
-  /* flex-end 를 사용하여 오른쪽 끝으로 보냄 */
+  background: url(./../images/webcafe-logo.png) no-repeat 0 0/100%;
+  /* background-size: 100% 100%; 가로 세로   */
+  /* no-repeat 0 0/100%; -> 100% 하나썻는데 가로 세로 크기가 100% 라는뜻 */
 }
 
 /* 공통 검색 폼 */
+/* input[type="search"] {
+  -webkit-appearance: none;
+  appearance: none;
+} */
+
 .searchForm__group {
   display: flex;
   flex-flow: row nowrap;
@@ -42,10 +48,6 @@
 
 .searchForm__group .formInput {
   margin-right: var(--spacing-xs);
-}
-
-.formInput {
-  background-color: aqua;
 }
 
 .searchForm__group .formInput__input {
@@ -62,7 +64,9 @@
   height: 2rem;
   border-radius: 0.25rem;
   padding: var(--spacing-sxxs) var(--spacing-sm);
+  /* flex-shrink 로 대체 가능 */
   flex: 0 0 auto;
+  /* white-space: nowrap; */
   font-size: var(--text-sm);
 }
 
@@ -84,6 +88,236 @@
   border: 1px solid currentColor;
 }
 
+/* 공통 멤버서비스 */
+.memberOnly {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+}
+
+/* 공통 메인 메뉴 */
+.menu__link {
+  display: block;
+  font-size: var(--text-md);
+  font-weight: 700;
+}
+
+/*공통 메인 컨텐츠 */
+.appMain {
+  display: grid;
+  gap: var(--spacing-base);
+  padding: var(--spacing-base) var(--spacing-lg);
+}
+
+/* 공통 메인 컨텐츠 섹션 제목 */
+[class*="__title"] {
+  margin-bottom: var(--spacing-base);
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+[class*="__koTitle"] {
+  font-size: var(--text-md);
+  font-weight: 700;
+  /* color: aqua; */
+}
+
+.sprite {
+  background: url(../images/sprite_main.png) no-repeat;
+  /* color: white; */
+  height: 3.75rem;
+  /* color: aqua; */
+  padding-left: 3.75rem;
+}
+
+.spriteBook {
+  background-position: 0 0;
+}
+.spriteBoard {
+  background-position: 0 -115px;
+}
+.spriteNews {
+  background-position: 0 -230px;
+}
+.spriteFavorite {
+  background-position: 0 -345px;
+}
+.spriteTwitter {
+  background-position: 0 -460px;
+}
+
+.accentBook {
+  color: var(--accent-book);
+}
+.accentNews {
+  color: var(--accent-news);
+}
+.accentBoard {
+  color: var(--accent-board);
+}
+.accentFavorite {
+  color: var(--accent-favorite);
+}
+.accentTwitter {
+  color: var(--accent-twitter);
+}
+
+/* 공통 메인 콘텐츠 섹션 본문 */
+.appMain [class*="__summary"] {
+  line-height: 1.6;
+  margin-top: var(--spacing-base);
+}
+
+/* 공통 추천 서적 */
+.book {
+  /* background: lightblue; */
+  grid-area: book;
+}
+
+.book__cover {
+  /* figure 가 줄어든것, 이미지가 줄어든게 아니다 */
+  width: 80%;
+  /* width가 부모보다 작아야, 즉 width가 남아야 auto 마진으로 가운데 정렬 가능하다. */
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: yellow; */
+  text-align: center;
+}
+
+.book__coverCaption {
+  margin-top: var(--spacing-sm);
+  line-height: 1.6;
+}
+
+.book__info {
+  /* background-color: beige; */
+  text-align: center;
+  margin-top: var(--spacing-base);
+}
+
+/* book__info 인것들 전부 다 포함 */
+.book__info * {
+  display: inline;
+  /* background-color: antiquewhite; */
+}
+
+.ratingStar {
+  display: block;
+  font-size: var(--text-xl);
+  /* background-color: aquamarine; */
+}
+
+/* 공통 새소식 */
+.news {
+  /* background: yellow; */
+  grid-area: news;
+}
+
+.news__date {
+  /* background-color: lime; */
+  display: block;
+  margin-top: var(--spacing-base);
+  text-align: right;
+}
+
+/* 공통 게시판 */
+.board {
+  /* background-color: bisque; */
+  grid-area: board;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.board__title {
+  flex: 1 1 auto;
+  /* background-color: aqua; */
+}
+
+/* ul */
+.board__list {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: pink;
+  flex: 1 1 auto;
+  order: 1;
+  gap: var(--spacing-sm);
+  width: 100%;
+  /* background-color: aqua; */
+}
+
+.board__item {
+  background-color: paleturquoise;
+  display: flex;
+  flex-flow: row nowrap;
+  /* justify-content: space-between; */
+}
+
+.board__link {
+  background-color: wheat;
+  /* flex: 0 1 auto; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: calc(100% - 6.25em);
+  /* width: 100%; */
+}
+
+.board__date {
+  background-color: aquamarine;
+  /* justify-content: space-between; */
+  /* flex: 0 0 auto; */
+  text-align: right;
+  width: 6.25rem;
+}
+
+.board__more {
+  padding-top: var(--spacing-sm);
+}
+/* 공통 인기 사이트 */
+.favorite {
+  /* background: skyblue; */
+  grid-area: favorite;
+}
+/* 공통 트위터 */
+.twitter {
+  grid-area: twitter;
+}
+
+.twitter__container {
+  /* background: burlywood; */
+}
+
+.twitter__userInfo {
+  background-color: aqua;
+  display: inline-flex;
+  gap: var(--spacing-xs);
+  /* margin-bottom: var(--spacing-base); */
+}
+
+.twitter__userProfile {
+  background-color: aqua;
+  float: right;
+  width: 20%;
+  max-width: 5.5rem;
+  min-width: 3rem;
+  aspect-ratio: 1/1;
+  margin-right: var(--spacing-xs);
+  shape-outside: circle(50%);
+}
+.twitter__userProfileImage {
+  border: 1px solid var(--primary-color);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 30% 40%;
+  width: 100%;
+  height: 100%;
+}
+
+.twitter__date {
+  display: block;
+  margin-top: var(--spacing-xs);
+}
 /* 모바일 디바이스 (Mobile Device) */
 @media (min-width: 320px) and (max-width: 768px) {
   /* 모바일 헤더 */
@@ -97,44 +331,128 @@
     order: -1;
     font-size: var(--text-sm);
   }
+
   /* 모바일 검색 폼 */
   .searchForm__group .formInput {
     flex-grow: 1;
   }
-}
 
-/* 모바엘 메뉴 제어 버튼 시작 */
-.buttonWrapper {
-  background: gold;
-}
+  /* 모바일 메인메뉴 제어버튼 */
+  .buttonWrapper {
+    padding: var(--spacing-xs);
+    /* hidden 으로 인해 짤린걸 padding으로 커버 */
+    overflow: hidden;
+    position: absolute;
+    top: 3.75rem;
+    /* right 준 이유는  */
+    right: var(--spacing-lg);
+    /* 상자가 내려가기 떄문에 다시 translate 이용해서 올림 */
+    transform: translate(0.25rem, -0.25rem);
+  }
 
-.button--burger {
-  width: 30px;
-  height: 30px;
-  background: blue;
-  position: relative;
-}
+  .button--burger {
+    /* 엡해더에도 relative 있음 */
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+  }
 
-[class*=".button--burgerBar"] {
-  background: var(--white);
-  position: absolute;
-  width: 100%;
-  height: 20%;
-  border-radius: 10px;
-  left: 0;
-  transition: all 200ms;
-}
+  .button--burger:focus {
+    /* 키보드로 접근할때 식별하기 편하기 위함*/
+    outline-offset: 2px;
+  }
 
-.button--burgerBarTop {
-  top: 0;
-}
-.button--burgerBarMiddle {
-  top: 50%;
-}
-.button--burgerBarBottom {
-}
+  .button--burgerBarTop,
+  .button--burgerBarMiddle,
+  .button--burgerBarBottom {
+    pointer-events: none;
+    /* 클릭해도 버튼을 누른것처럼 하기 위해 */
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    background: var(--white);
+    border-radius: 0.25rem;
+    left: 0;
+    transition: all 200ms;
+  }
 
-/* 모바엘 메뉴 제어 버튼 종료 */
+  .button--burgerBarTop {
+    top: 0;
+  }
+
+  .button--burgerBarMiddle {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .button--burgerBarBottom {
+    top: 100%;
+    transform: translateY(-100%);
+  }
+
+  .button--burger.is--active .button--burgerBarMiddle {
+    transform: translate(-150%, -50%);
+  }
+
+  .button--burger.is--active .button--burgerBarTop {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .button--burger.is--active .button--burgerBarBottom {
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  /* 모바일 메인 메뉴 */
+  .menu__list {
+    background: var(--accent-opacity-color);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100vh;
+    backdrop-filter: blur(4px);
+    padding: var(--spacing-lg);
+    transform: translateX(-150%);
+  }
+
+  .menu__item {
+    border-bottom: 1px solid var(--silver);
+  }
+
+  .menu__link {
+    padding: var(--spacing-xs);
+  }
+
+  .menu.is--active .menu__list {
+    transform: none;
+  }
+  /* 모바일 메인 컨텐츠 */
+  .appMain {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      "book"
+      "news"
+      "board"
+      "favorite"
+      "twitter";
+  }
+
+  /* 모바일 인기 사이트 */
+  .favorite__item {
+    margin-top: var(--spacing-sm);
+  }
+
+  /* datatooltip 추가 */
+  .favorite__link::after {
+    content: attr(data-tooltip);
+    color: var(--accent-favorite);
+    font-size: var(--text-sm);
+    margin-left: var(--spacing-xs);
+  }
+}
 
 /* 데스크탑 디바이스 (Desktop Device) */
 @media (min-width: 769px) {
@@ -143,7 +461,7 @@
     max-width: var(--container-width);
     margin-left: auto;
     margin-right: auto;
-    background-color: gold;
+    /* background-color: pink; */
   }
 
   /* 데스크탑 로고 */
@@ -152,7 +470,6 @@
     top: 50%;
     transform: translateY(-50%);
   }
-
   /* 데스크탑 검색 폼 */
   .searchForm__group {
     justify-content: flex-end;
@@ -161,21 +478,58 @@
   .searchForm__group .formInput {
     width: 25rem;
   }
-}
+  /* 데스크탑 메인메뉴 제어버튼 */
+  .button--burger {
+    display: none;
+  }
 
-/* 데스크탑 메인메뉴 제어버튼 */
-.button--burger {
-  display: none;
-}
+  /* 데스크탑 메인 메뉴 */
+  .menu {
+    background: var(--secondary-color);
+    padding: var(--spacing-base) var(--spacing-lg);
+  }
 
-/* 고해상도 배경이미지 미디어쿼리 */
-@media (-webkit-min-device-pixel-ratio: 2),
-  (min--moz-device-pixel-ratio: 2),
-  (-o-min-device-pixel-ratio: 2/1),
-  (min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi),
-  (min-resolution: 2dppx) {
-  .logo__link {
-    background-image: url(./../images/webcafe-logo@2x.png);
+  .menu__list {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    /* 높이를 주고 어라인 아이템 주고 center 처리하면 글자가 중간으로 옴 */
+  }
+
+  .menu__link {
+    display: block;
+    padding: var(--spacing-md) var(--spacing-lg);
+    color: var(--white);
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 0 var(--black), -1px -1px 0 var(--black);
+  }
+
+  /* 데스크탑 메인 컨텐츠 */
+  .appMain {
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    border: 5px solid red;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+      "news news news news news news news news news news news news"
+      "book book book book twitter twitter twitter twitter twitter favorite favorite favorite"
+      "book book book book . board board board board board board board ";
+  }
+
+  /* 고해상도 배경이미지 미디어쿼리 */
+  @media (-webkit-min-device-pixel-ratio: 2),
+    /* 최소 2배율 이상일때 디바이스에 최적화된 이미지를 출력하라고 명령*/ (min--moz-device-pixel-ratio: 2),
+    (-o-min-device-pixel-ratio: 2/1),
+    (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .logo__link {
+      background-image: url(./../images/webcafe-logo@2x.png);
+    }
   }
 }
